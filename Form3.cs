@@ -13,53 +13,14 @@ namespace Kiosk_project
 {
     public partial class Form3 : Form
     {
-
-        public string ReceivedItem
-        {
-            get { return _receivedItem; }
-            set
-            {
-                _receivedItem = value;
-                UpdatePictureBox3Image(); // ReceivedItem이 변경될 때 이미지를 업데이트
-            }
-        }
-        private string _receivedItem;
-
-        private void UpdatePictureBox3Image()
-        {
-            // ReceivedItem에 따라 PictureBox3의 이미지를 업데이트
-            if (_receivedItem == "AWP")
-            {
-                pictureBox3.Image = imageList4.Images[0]; // 이미지는 프로젝트 리소스에 따라서 설정해야 합니다.
-            }
-            //else if (_receivedItem == "TRG")
-            //{
-            //    pictureBox3.Image = Properties.Resources.TRGImage;
-            //}
-            //// 다른 아이템에 대한 이미지도 추가
-            //else if (_receivedItem == "Gurkha")
-            //{
-            //    pictureBox3.Image = Properties.Resources.GurkhaImage; // 다른 경우 이미지를 없애거나 기본 이미지로 설정
-            //}
-            //else if (_receivedItem == "G600")
-            //{
-            //    pictureBox3.Image = Properties.Resources.G600Image;
-            //}
-            //else if (_receivedItem == "CM901")
-            //{
-            //    pictureBox3.Image = Properties.Resources.CM901Image;
-            //}
-            //else if (_receivedItem == "KRISS")
-            //{
-            //    pictureBox3.Image = Properties.Resources.KRISSImage;
-            //}
-
-        }
         public Form3()
         {
             InitializeComponent();
             textBox1.Text = "10000000";
+
         }
+
+
 
         int count = 0;
 
@@ -118,6 +79,11 @@ namespace Kiosk_project
         {
             get { return imageList1; }
             set { imageList1 = value; }
+        }
+        public ImageList imagelist4
+        {
+            get { return imageList4; }
+            set { imageList4 = value; }
         }
 
         private void btnAk47_Click(object sender, EventArgs e)
@@ -850,8 +816,13 @@ namespace Kiosk_project
 
 
 
-            Itemmix itemmix = new Itemmix(mix);
+            Itemmix itemmix = new Itemmix(mix, this);
+            this.Hide();
             itemmix.Show();//모달리스
+
+
+
+
         }
     }
 }

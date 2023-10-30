@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Itemmix));
             pictureBox1 = new System.Windows.Forms.PictureBox();
             button1 = new System.Windows.Forms.Button();
@@ -40,6 +41,7 @@
             button8 = new System.Windows.Forms.Button();
             button9 = new System.Windows.Forms.Button();
             button10 = new System.Windows.Forms.Button();
+            imageList1 = new System.Windows.Forms.ImageList(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -66,13 +68,14 @@
             // 
             // button2
             // 
+            button2.BackColor = System.Drawing.Color.White;
             button2.DialogResult = System.Windows.Forms.DialogResult.OK;
             button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             button2.Location = new System.Drawing.Point(1000, 210);
             button2.Name = "button2";
             button2.Size = new System.Drawing.Size(194, 153);
             button2.TabIndex = 11;
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click_1;
             // 
             // button3
@@ -156,6 +159,18 @@
             button10.UseVisualStyleBackColor = true;
             button10.Click += button10_Click;
             // 
+            // imageList1
+            // 
+            imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth24Bit;
+            imageList1.ImageStream = (System.Windows.Forms.ImageListStreamer)resources.GetObject("imageList1.ImageStream");
+            imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            imageList1.Images.SetKeyName(0, "AWP!.png");
+            imageList1.Images.SetKeyName(1, "mixTrg.png");
+            imageList1.Images.SetKeyName(2, "mixGru.png");
+            imageList1.Images.SetKeyName(3, "mixG600.png");
+            imageList1.Images.SetKeyName(4, "mixcm.png");
+            imageList1.Images.SetKeyName(5, "mixKriss.png");
+            // 
             // Itemmix
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -191,5 +206,6 @@
         public System.Windows.Forms.Button button8;
         public System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

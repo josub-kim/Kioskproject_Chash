@@ -467,11 +467,12 @@
             // 
             // button2
             // 
-            button2.Location = new System.Drawing.Point(797, 726);
+            button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button2.Image = (System.Drawing.Image)resources.GetObject("button2.Image");
+            button2.Location = new System.Drawing.Point(797, 722);
             button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(143, 49);
+            button2.Size = new System.Drawing.Size(143, 48);
             button2.TabIndex = 33;
-            button2.Text = "button2";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -486,7 +487,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1466, 830);
+            ClientSize = new System.Drawing.Size(1474, 847);
             Controls.Add(button2);
             Controls.Add(btnAk47);
             Controls.Add(textBox1);
@@ -575,6 +576,6 @@
         public System.Windows.Forms.PictureBox pictureBox10;
         public System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ImageList imageList4;
+        public System.Windows.Forms.ImageList imageList4;
     }
 }

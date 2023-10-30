@@ -10,13 +10,18 @@ using System.Windows.Forms;
 
 namespace Kiosk_project
 {
+
     public partial class Itemmix : Form
     {
+
+        private Form3 form3;
         List<Button> buttons = new List<Button>(); //버튼이라는 리스트 클래스 생성해서
         int count = 0;
-        public Itemmix(List<PictureBox> list)
+        public Itemmix(List<PictureBox> list, Form3 form3)
         {
             InitializeComponent();
+            this.form3 = form3;
+            //_form3 = form3;
             //button1.Image = list[0].Image; 원래는 이렇게지만..
             buttons.Add(button1);
             buttons.Add(button2);
@@ -49,6 +54,8 @@ namespace Kiosk_project
                 button1.Location = new Point(275, 445);
             else if (count == 6)
                 button1.Location = new Point(490, 445);
+
+
         }
 
 
@@ -193,19 +200,16 @@ namespace Kiosk_project
 
         private void button10_Click(object sender, EventArgs e) // 아이템 믹스 클릭
         {
-            Form3 form3 = new Form3();
-
-
+            //form3.pictureBox3.Image = null;
             Random random = new Random();
-            int number = random.Next(1, 7);
             Dictionary<string, double> probabilities = new Dictionary<string, double>
                 {
-                    { "AWP", 0.05 },
-                    { "TRG", 0.4 },
-                    { "Gurkha", 0.1 },
-                    { "G600", 0.1 },
-                    { "CM901", 0.3 },
-                    { "KRISS ", 0.05 },
+                    { "AWP", 0.9 },
+                    { "TRG", 0.01 },
+                    { "Gurkha", 0.01 },
+                    { "G600", 0.01},
+                    { "CM901", 0.01 },
+                    { "KRISS ", 0.06 },
                 };
 
             if (count < 3)
@@ -215,7 +219,6 @@ namespace Kiosk_project
                 double randomValue = random.NextDouble();
                 double cumulativeProbability = 0.0;
                 string selectedItem = null;
-
                 foreach (var kvp in probabilities)
                 {
                     cumulativeProbability += kvp.Value;
@@ -229,15 +232,56 @@ namespace Kiosk_project
 
                 if (selectedItem != null)
                 {
+                    if (selectedItem == "AWP")
+                    {
+                        form3.PictureBox3.Image = imageList1.Images[0];
+                        form3.PictureBox4.Image = null;
+                        form3.PictureBox5.Image = null;
+                        form3.Show(this);
+                    }
+                    else if (selectedItem == "TRG")
+                    {
+                        form3.PictureBox3.Image = imageList1.Images[1];
+                        form3.PictureBox4.Image = null;
+                        form3.PictureBox5.Image = null;
+                        form3.Show(this);
+                    }
+                    else if (selectedItem == "Gurkha")
+                    {
+                        form3.PictureBox3.Image = imageList1.Images[2];
+                        form3.PictureBox4.Image = null;
+                        form3.PictureBox5.Image = null;
+                        form3.Show(this);
+                    }
+                    else if (selectedItem == "G600")
+                    {
+                        form3.PictureBox3.Image = imageList1.Images[3];
+                        form3.PictureBox4.Image = null;
+                        form3.PictureBox5.Image = null;
+                        form3.Show(this);
+                    }
+                    else if (selectedItem == "CM901")
+                    {
+                        form3.PictureBox3.Image = imageList1.Images[4];
+                        form3.PictureBox4.Image = null;
+                        form3.PictureBox5.Image = null;
+                        form3.Show(this);
+                    }
+                    else if (selectedItem == "KRISS")
+                    {
+                        form3.PictureBox3.Image = imageList1.Images[5];
+                        form3.PictureBox4.Image = null;
+                        form3.PictureBox5.Image = null;
+                        form3.Show(this);
+                    }
+
                     MessageBox.Show($"선택된 아이템: {selectedItem}");
                     // count 변수를 조정하는 코드 또는 다른 작업 수행
-                    form3.ReceivedItem = selectedItem;
                 }
                 else
                 {
                     MessageBox.Show("선택된 아이템이 없습니다. 오류 또는 확률 합이 1보다 작을 수 있습니다.");
                 }
-
             }
         }
     }
